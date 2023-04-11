@@ -1,0 +1,44 @@
+.body1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    margin-right: 35%;
+    margin-left: 35%;
+    background-size: 100%;
+    color: black;
+}
+.marg {
+    margin: 10px;
+}
+button {
+    margin: 10px auto;
+    display: block;
+}
+footer {
+    padding: 20px 0;
+}
+.auth {
+    border: 3px solid black;
+    border-radius: 5px;
+}
+.form1 {
+    border: 3px solid black;
+    border-radius: 5px;
+    
+}
+.body2 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-image: url("images/background.jpg");
+    background-size: 100%;
+    color: rgb(148,0,211);
+}
+.main2 {
+    margin: 0 auto;
+    margin-left: 40%;
+    margin-right: 40%;
+    
+}
+.body2 a, .body1 a {
+    color: aliceblue;
+}
