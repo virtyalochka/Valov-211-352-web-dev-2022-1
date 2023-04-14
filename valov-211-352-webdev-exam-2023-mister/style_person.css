@@ -1,0 +1,45 @@
+header, footer {
+    background-color: skyblue;
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav-link, footer {
+    color: black;
+}
+
+.name-company p {
+    color: black;
+}
+
+main {
+    background-color: beige;
+}
+
+.routes-list, .guides-list, .dignity {
+    border: brown 4px solid;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: var(--bs-secondary);
+}
+
+.dropdown {
+    height: 100px;
+}
+
+.modal-content {
+    background-color:beige;
+}
+
+.alerts {
+    position: sticky;
+    top: 0;
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}

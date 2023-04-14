@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style_person.css">
+    <title>Travel</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="logo text-center mx-auto mx-md-5">
+                    <img class="img-fluid w-100" src="logo_2.png" alt="logo">
+                </div>
+                <div class="name-company d-flex flex-column ms-5">
+                    <p class="fs-1 mb-0">Заплати и не парься</p>
+                </div>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-5 ms-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Назад</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="alerts w-75 mx-auto">
+            <div class="d-none alert alert-warning alert-dismissible fade hidden" role="alert">
+                <!-- <strong>Holy guacamole!</strong> You should check in on some of those fields below. -->
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="container pt-5 routes-list">
+            <div class="routes">
+                <p class="fs-2">Другие заявки заявки</p>
+            </div>
+
+            <div class="py-3 row table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="">
+                        <tr>
+                            <th scope="col">
+                                №
+                            </th>
+                            <th scope="col" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="This top tooltip is themed via CSS variables.">Название маршрута/Nazvanie marsshryta</th>
+                            <th scope="col">Дата/Data</th>
+                            <th scope="col">Стоимость/Stoimost</th>
+                            <th scope="col">Действия/Deistvia</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-routes">
+                        <!-- <tr class="fs-6">
+                            <th scope="row" class="">1</th>
+                            <td>Нескучный сад</td>
+                            <td>12.12.2022</td>
+                            <td>3000</td>
+                            <td class="d-flex flex-wrap">
+                                <i class="bi bi-eye-fill mx-2"></i>
+                                <i class="bi bi-pencil-square mx-2"></i>
+                                <i class="bi bi-trash-fill ms-2"></i>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container pb-3">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center d-flex flex-wrap">
+                    <li class="page-item"><a class="page-link active bg-secondary text-warning" href="#">1</a></li>
+                    <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                </ul>
+            </nav>
+        </div>
+
+        <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Номер заявки <span class="idTaskForShow"></span></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="create-task-form">
+                            <div class="mb-3 row">
+                                <label for="name" class="col-form-label col-md-4">ФИО гида: </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control-plaintext" readonly id="name" name="name">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="desc" class="col-form-label col-md-4">Название маршрута: </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control-plaintext" readonly id="route" name="route">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-4 mb-1">
+                                    <label for="date" class="mb-1">Дата экскурсии: </label>
+                                    <input type="date" id="date" readonly required>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <label for="time" class="mb-1">Время начала: </label>
+                                    <input type="time" id="time" min="09:00" max="23:00" step="1800" value="09:00" required readonly>
+                                </div>
+                                <div class="col-6 col-md-4 mb-2">
+                                    <label for="selectLength" class="mb-1">Длительность экскурсии: </label>
+                                    <select id="selectLength" class="form-select" disabled aria-label="Default select example">
+                                        <option value="1" selected>1 час</option>
+                                        <option value="2">2 часа</option>
+                                        <option value="3">5 часов</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 my-2">
+                                    <label for="customRange2" class="form-label">Кол-во человек: </label>
+                                    <input type="range" disabled readonly class="form-range" min="1" max="20" step="1" id="customRange2"
+                                        value="1">
+                                    <input type="text" class="form-control" readonly id="number-people" name="number-people"
+                                        value="1" disabled>
+                                </div>
+                                <label for="flexSwitchCheckDefault" class="mb-1 options">Доп опции:</label>
+                                <div class="form-check form-switch form-switch-option1">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="option1">
+                                    <label class="form-check-label" for="option1">Использовать нормальную цену для
+                                        пенсионеров</label>
+                                </div>
+                                <div class="form-check form-switch form-switch-option2 mb-2">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="option2">
+                                    <label class="form-check-label" for="option2">Сувениры для
+                                        посетителей</label>
+                                </div>
+                                <div class="mb-3 row mt-2">
+                                    <label for="name" class="col-form-label col-md-6">Итоговая стоимость:</label>
+                                    <div class="col-md-6 mt-md-2">
+                                        <input type="text" class="form-control-plaintext" readonly id="price"
+                                            name="price">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary back-btn" data-bs-dismiss="modal">Отменить</button>
+                        <button type="button" form="create-task-form"
+                            class="btn btn-primary create-btn">Завершить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteTask" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Удаление заявки</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Вы уверены, что хотите не платить нам и удалить заявку   
+                            <span class="deleteTask"></span>
+                            ?</p>
+                        <form>
+                            <input type="hidden" name="taskid">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
+                        <button type="button" class="btn btn-primary delete" data-bs-dismiss="modal">Да</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="">
+        <div class="py-3 me-auto d-flex justify-content-center align-items-center flex-column">
+            <h2>Наши контакты</h2>
+            <ul class="nav flex-column">
+                valovalexcen@mail.ru 89123456789 Валов А.В 
+            </ul>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center py-3">
+            <p class="ms-5">© 2021 Travel, Inc.</p>
+        </div>
+        
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="person.js"></script>
+</body>
+
+</html>
